@@ -1,0 +1,79 @@
+<div class="container background">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" style="color: white" (click)="goBack()"> Previous Page</a>
+        </div>
+    </div>
+    <hr><br>
+    <div>
+        <span style="text-align: center">
+            <h2>{{currentCountry.name | uppercase}} ({{currentCountry.nativeName}})</h2>
+        </span><br><br>
+        <div class="row justify-content-around" *ngIf='currentCountry'>
+            <div class="col-md-6 ">
+                <img src="{{currentCountry.flag}}" class="image">
+            </div>
+            <div class="col-md-4 ">
+                <div class="card border-info" style="width: 18rem;">
+                    <div class="card-header">
+                        <h3>Names </h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-list">Common : {{currentCountry.name}}</li>
+                        <li class="list-group-item">Native : {{currentCountry.nativeName}}</li>
+                        <li class="list-group-item bg-list">Capital : {{currentCountry.capital}}</li>
+                        <li class="list-group-item">Alternative spellings : [{{currentCountry.altSpellings}}]</li>
+                    </ul>
+                </div>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-info " style="width: 18rem;">
+                    <h3 class="card-header">Codes </h3>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item bg-list">International calling code : {{currentCountry.callingCodes}}
+                        </li>
+                        <li class="list-group-item">ISO 3166 Numeric code : {{currentCountry.numericCode}}</li>
+                        <li class="list-group-item bg-list">ISO 3166-1 alpha-2 code : {{currentCountry.alpha2Code}}</li>
+                        <li class="list-group-item">ISO 3166-1 alpha-3 code : {{currentCountry.alpha3Code}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-info " style="width: 18rem;">
+                    <h3 class="card-header">Geography </h3>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item bg-list">Region : {{currentCountry.region}}</li>
+                        <li class="list-group-item">Sub-region : {{currentCountry.subregion}}</li>
+                        <li class="list-group-item bg-list">Area : {{currentCountry.area}}km<sup>2</sup></li>
+                        <li class="list-group-item">Population : {{currentCountry.population}}</li>
+                        <li class="list-group-item bg-list">Lat/Lng : [{{currentCountry.latlng}}]</li>
+                        <li class="list-group-item">Land borders : [{{currentCountry.borders}}]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-info " style="width: 18rem;">
+                    <h3 class="card-header">Important details </h3>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item bg-list">Demonym : {{currentCountry.demonym}}</li>
+                        <li class="list-group-item">Top-Level Domain : {{currentCountry.topLevelDomain}}</li>
+                        <li class="list-group-item bg-list">Languages : <span
+                                *ngFor='let language of currentCountry.languages; let first=first; let last = last'>{{language.name}}{{last?'':', '}}</span>
+                        </li>
+                        <li class="list-group-item">Currencies : <span
+                                *ngFor='let currency of currentCountry.currencies; let first=first; let last = last'>{{currency.name}}({{currency.symbol}}){{last?'':', '}}</span>
+                        </li>
+                        <li class="list-group-item bg-list">GINI index : {{currentCountry.gini}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div><br><br>
+    </div><br><br>
+</div>
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>

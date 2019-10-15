@@ -1,0 +1,23 @@
+.reg{ 
+
+    display: block;
+    padding: 3%;
+    color: rgb(0, 0, 4);
+    font-size: 40px;
+    font-family: 'comic sans ms';
+}
+
+.background{
+
+    background-image: url(https://starkaerospace.com/wp-content/uploads/2014/06/background-world-map-1.gif);
+}
+
+.footer{
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #0c0c0c;
+}

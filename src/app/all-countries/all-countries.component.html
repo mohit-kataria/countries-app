@@ -1,0 +1,48 @@
+<div class="container background">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary " style="color: white" (click)="goBackToPreviousPage()">Previous Page</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col" style="text-align: center; color: rgb(0, 0, 4); font-family: comic sans ms;">
+            <h1><u> All Countries </u></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4" *ngFor='let country of allCountries | paginate: { itemsPerPage: 9, currentPage: p }'>
+            <br><br>
+            <div class="card bg-light mb-3 border-info mb-3" style="width: 20rem;">
+                <img src='{{country.flag}}' class="card-img-top" alt="Country's Flag">
+                <div class="card-body">
+                    <h5 class="card-title">{{country.name | uppercase}}</h5>
+                    <p class="card-text">Below are some details about {{country.name}}.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Capital : {{country.capital}}</li>
+                    <li class="list-group-item">Subregion : {{country.subregion}}</li>
+                    <li class="list-group-item">Timezones : {{country.timezones}}</li>
+                    <li class="list-group-item">Languages : <a
+                            *ngFor='let languages of country.languages;let first=first;let last=last'
+                            href="javascript:void(0)" (click)="goToLanguageFilter(languages.iso639_2)">
+                            {{languages.name}}{{last?'':', '}} </a>
+                    </li>
+                    <li class="list-group-item">Currencies : <a
+                            *ngFor='let currencies of country.currencies;let first=first;let last=last'
+                            href="javascript:void(0)" (click)="goToCurrencyFilter(currencies.code)">
+                            {{currencies.name}}{{last ? '' : ', '}}</a></li>
+                </ul>
+                <div class="card-body">
+                    <a [routerLink]="['/country',country.name]" class="btn btn-primary">View More</a>
+                </div>
+            </div><br>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls><br><br><br><br>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>
