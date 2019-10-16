@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4" *ngFor='let country of allCountries | paginate: { itemsPerPage: 9, currentPage: p }'>
+        <div class="col-lg-4 col-md-6" *ngFor='let country of allCountries | paginate: { itemsPerPage: 9, currentPage: p }'>
             <br><br>
             <div class="card bg-light mb-3 border-info mb-3" style="width: 20rem;">
                 <img src='{{country.flag}}' class="card-img-top" alt="Country's Flag">
